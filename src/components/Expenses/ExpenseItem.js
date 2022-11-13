@@ -5,6 +5,7 @@ import ExpenseDate from './ExpenseDate';
 import Review from "../Book.js/Review";
 import { useNavigate, Link } from 'react-router-dom';
 import NewReview from "../Book.js/NewReview";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 function ExpenseItem(props) {
 
@@ -12,6 +13,7 @@ function ExpenseItem(props) {
 const navigate = useNavigate();
 
   const [title, setTitle] = useState(props.title);
+
   
   return (
     
@@ -24,8 +26,8 @@ const navigate = useNavigate();
           <Card className="prices">{props.amount}</Card>
         </div>
       </Link>
-      <button className="delete_item">
-        Delete
+      <button className="delete_item" value={title} onClick={props.delete_book()}>
+        <DeleteForeverIcon/>
       </button>
     </Card>
   );

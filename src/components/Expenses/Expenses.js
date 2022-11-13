@@ -28,7 +28,7 @@ function Expenses(props) {
         <ExpensesFilter selected={filteredGenre} onChangeFilter={filterChangeHandler} />
         <SearchBar inputHandler={inputHandler} />
       </div>
-      <ExpensesList items={props.items} searchText={SearchText} filteredGenre={filteredGenre} />
+      <ExpensesList items={props.items} searchText={SearchText} filteredGenre={filteredGenre} delete_book={props.delete_book} />
     </Card>
   );
 }

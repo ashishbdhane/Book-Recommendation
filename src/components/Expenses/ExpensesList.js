@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Expenses from "./Expenses";
 import ExpenseItem from "./ExpenseItem";
 import './ExpensesList.css';
@@ -11,12 +11,6 @@ function ExpensesList(props) {
       No Expense Found.
     </h2>
   }
-//   const filteredData = props.items.filter((el) => {
-//     console.log(props.items);
-//     console.log(el.name);
-
-//     return el.title>4;
-// })
   let filteredData = props.items.filter((el) => {
     if (props.searchText === '') {
         return el;
@@ -26,7 +20,6 @@ function ExpensesList(props) {
     }
 })
   filteredData = filteredData.filter((el) => {
-    console.log(el);
     if(props.filteredGenre==='All'){
       return el;
     }
@@ -36,6 +29,8 @@ function ExpensesList(props) {
   })
 
 
+  
+
   return (
     <ul className='expenses-list'>
       {
@@ -44,6 +39,7 @@ function ExpensesList(props) {
           title={element.name}
           amount={element.price}
           user={element.user}
+          delete_book={props.delete_book}
           />       
           )) 
         }

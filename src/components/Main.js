@@ -125,7 +125,15 @@ const Main = () => {
       </Card>
     );
   }
-  console.log(expense);
+
+  const delete_book = (name) => {
+    name.preventDefault();
+    let temp=[...expense]; 
+    temp.splice(temp.findIndex(a => a.name === name.currentTarget.value) , 1);
+    localStorage.setItem("details", JSON.stringify(temp));
+    // console.log(e.currentTarget.value);
+    setExpense(temp);
+  }
 
   return (
     <div>
@@ -133,7 +141,7 @@ const Main = () => {
       <h2 style={{textAlign: 'center'}}>Book Review</h2>
       {/* <NewReview submitHandler={submitHandler}/> */}
       <NewExpense submitHandler={submitHandler}/>
-      <Expenses items={expense}/>
+      <Expenses items={expense} delete_book={()=>delete_book}/>
       <div className="button-logout">
         <button onClick={logout}>Logout</button>
       </div>
