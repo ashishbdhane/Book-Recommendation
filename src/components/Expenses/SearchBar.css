@@ -1,0 +1,8 @@
+input {
+    border-radius: 6px;
+    font: inherit;
+    padding: 0.5rem 3rem;
+    font-weight: bold;
+    height: 45px;
+    align-self: center;
+}
