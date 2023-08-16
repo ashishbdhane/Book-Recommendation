@@ -8,12 +8,19 @@
   overflow-y: auto;
   font-size: 1.5rem;
   border-radius: 12px;
-  
   align-self: flex-end;
     border-radius: 12px;
   max-width: 1000px;
   margin:10px  auto;;
+  align-self: center;
 }
+
+.no_name {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
 
 .user__writer {
     font-weight:lighter;

@@ -13,10 +13,10 @@ function NewReview(props)
     const [isNewExpenseVisible,setIsNewExpenseVisible]= useState(false);
 
 
+    
     const dateChangeHandler =  (event) => {
         setEnteredDate(event.target.value);
     }
-
 
     const onSubmit = (event) => {
         event.preventDefault();

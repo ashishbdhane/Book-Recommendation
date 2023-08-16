@@ -8,7 +8,7 @@ import './NewExpense.css';
 function NewExpense(props){
   const [enteredTitle,setEnteredTitle] = useState('');
   const [enteredAmount,setEnteredAmount] = useState('');
-  const [enteredGen,setEnteredGen] = useState('');
+  const [enteredGen,setEnteredGen] = useState('Fiction');
   const [isNewExpenseVisible,setIsNewExpenseVisible]= useState(false);
   
 
@@ -44,7 +44,7 @@ function NewExpense(props){
   }
   
 
-  if(isNewExpenseVisible==false)
+  if(isNewExpenseVisible===false)
   {
     return <div>
       <div className="new-expense">

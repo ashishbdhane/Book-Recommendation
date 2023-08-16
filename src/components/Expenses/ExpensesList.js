@@ -5,12 +5,7 @@ import './ExpensesList.css';
 
 
 function ExpensesList(props) {
-  if(props.items.length===0)
-  {
-    return <h2 className='expenses-list__feedback'>
-      No Expense Found.
-    </h2>
-  }
+  
   let filteredData = props.items.filter((el) => {
     if (props.searchText === '') {
         return el;
@@ -28,7 +23,12 @@ function ExpensesList(props) {
     }
   })
 
-
+  if(filteredData.length===0)
+  {
+    return <h2 className='expenses-list__feedback'>
+      No Expense Found.
+    </h2>
+  }
   
 
   return (

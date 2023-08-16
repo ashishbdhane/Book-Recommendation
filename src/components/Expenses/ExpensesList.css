@@ -7,4 +7,7 @@
     list-style: none;
     padding: 0;
   }
-  
+
+.expenses-list__feedback{
+    padding: 20px 5px;
+}

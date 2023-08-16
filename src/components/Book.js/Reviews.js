@@ -1,11 +1,10 @@
 import {React, Fragment, useState} from 'react'
 import NewReview from "./NewReview";
 import ReviewsList from './ReviewsList';
-import { useNavigate, Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
-import { getAuth,EmailAuthProvider,GoogleAuthProvider,signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import {useParams} from 'react-router-dom';
-import { auth } from 'firebaseui';
 
 const config = {
   apiKey: "AIzaSyD_VfGlJvRQZAUiOHZ9O-wBdvdR42sBzW0",
@@ -25,18 +24,13 @@ const Reviews = () => {
    const [expense,setExpense]=useState(JSON.parse(localStorage.getItem("details")));
     const [filteredData,setFilteredData]= useState(expense.filter(el => el.name===params.id)[0]);
     const submitHandler = (newItem) => {
-      // const arr=[newItem.Review, ...filteredData]/
-      // const arr = { ...filteredData }
-      // if(arr.reviews)
+
       let name=auth.currentUser.displayName;
       let infoReview = {
         review_auth: name,
         review: newItem.Review,
       }
-    //   arr.reviews.unshift(newItem.Review);
-    // else
-    //   arr.reviews=[newItem.Review];
-    //   setFilteredData(arr);
+
       const arr = expense.map(ele => {
         if(params.id===ele.name)
         {
@@ -51,16 +45,14 @@ const Reviews = () => {
         }
         return ele;
       })
-      // console.log(arr);
-      // setFilteredData(arr);
-      // const arr={...expense}
+
       setExpense(arr);
 
     localStorage.setItem("details", JSON.stringify(arr));
   }
-  // console.log(filteredData);
-  return (
-    <Fragment>
+  console.log(filteredData);
+    return (
+      <Fragment>
      <h2 style={{textAlign: 'center'}}>{filteredData.name}</h2>
       
       <NewReview submitHandler={submitHandler}/>
